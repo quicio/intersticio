@@ -1,0 +1,15 @@
+<header class="site-header" role="banner">
+  <div class="wrap">
+    <a class="site-title" href="{{ '/' | relative_url }}">
+      <span class="site-title__word">INTERSTICIO</span>
+    </a>
+    <nav class="site-nav" aria-label="Principal">
+      <a href="{{ '/archivo/' | relative_url }}">Archivo</a>
+      {%- for col in site.data.editorial.colecciones %}
+      <a href="{{ col.slug | prepend: '/' | append: '/' | relative_url }}">{{ col.nombre }}</a>
+      {%- endfor %}
+      <a href="{{ '/sobre/' | relative_url }}">Sobre</a>
+      <a href="{{ '/feed.xml' | relative_url }}" title="RSS" aria-label="RSS">RSS</a>
+    </nav>
+  </div>
+</header>

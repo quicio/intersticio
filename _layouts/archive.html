@@ -1,0 +1,46 @@
+---
+layout: default
+pagination:
+  enabled: true
+---
+
+<section class="section">
+  <div class="wrap">
+    <p class="section__eyebrow">Archivo</p>
+    <h1 class="section__bigtitle">Cronología</h1>
+    <p class="section__dek">Todas las piezas, ordenadas por fecha.</p>
+  </div>
+</section>
+
+{%- comment -%}
+  Reunimos todas las piezas de todas las colecciones.
+{%- endcomment -%}
+{%- assign all = site.observaciones
+  | concat: site.artefactos
+  | concat: site.laboratorios
+  | concat: site.resonancias
+  | concat: site.derivadas -%}
+{%- assign all = all | sort: 'date' | reverse -%}
+
+{%- assign by_year = all | group_by_exp: "post", "post.date | date: '%Y'" -%}
+
+<section class="section">
+  <div class="wrap">
+    {%- for year in by_year %}
+    <div class="archive-year">
+      <h2 class="archive-year__title">{{ year.name }}</h2>
+      <ul class="archive-list">
+        {%- for post in year.items %}
+        <li class="archive-list__item">
+          <span class="archive-list__date">{{ post.date | date: "%-d %b" }}</span>
+          <span class="archive-list__collection">{{ post.coleccion | default: post.collection }}</span>
+          <a class="archive-list__link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endfor %}
+  </div>
+</section>
+
+{%- include pagination.html -%}

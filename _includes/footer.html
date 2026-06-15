@@ -1,0 +1,17 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="wrap">
+    <p class="site-footer__line">
+      <span class="site-footer__mark">INTERSTICIO</span>
+      <span class="site-footer__year">© {{ site.time | date: "%Y" }}</span>
+    </p>
+    <nav class="site-footer__nav" aria-label="Colecciones">
+      {%- for col in site.data.editorial.colecciones %}
+      <a href="{{ col.slug | prepend: '/' | append: '/' | relative_url }}">{{ col.nombre }}</a>
+      {%- endfor %}
+    </nav>
+    <p class="site-footer__credit">
+      Construido con <a href="https://jekyllrb.com">Jekyll</a>. Hospedado en
+      <a href="https://pages.github.com">GitHub Pages</a>. Sin trackers.
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,152 @@
+title: INTERSTICIO
+tagline: Exploraciones entre tecnología, arte, ciencia y cultura.
+description: >
+  INTERSTICIO es una publicación editorial dedicada a explorar los espacios
+  entre disciplinas: tecnología, inteligencia artificial, arte, diseño,
+  ciencia, cultura digital, música, comunidades creativas y futuros
+  emergentes.
+author: INTERSTICIO
+email: hello@intersticio.org
+url: "https://intersticio.org"
+baseurl: ""
+repository: anomalyco/intersticio
+
+lang: es
+locale: es_ES
+timezone: Europe/Madrid
+
+permalink: /:collection/:slug/
+paginate: 12
+paginate_path: "/archivo/page:num/"
+
+# Plugins — todos whitelisted en GitHub Pages
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# jekyll-feed: un único feed RSS en feed.xml que incluye todas las
+# colecciones editoriales. Jekyll-feed no soporta nativamente un feed
+# multi-colección unificado, por lo que creamos un feed custom en
+# feed.xml usando Liquid. (jekyll-feed queda registrado como plugin
+# pero su salida por defecto no se usa.)
+feed:
+  path: feed.xml
+  posts: false
+
+# Colecciones editoriales
+collections:
+  observaciones:
+    output: true
+    permalink: /observaciones/:slug/
+    name: Observaciones
+    description: >
+      Piezas cortas. Notas de campo, hallazgos, lecturas, una idea que
+      merece desarrollo.
+  artefactos:
+    output: true
+    permalink: /artefactos/:slug/
+    name: Artefactos
+    description: >
+      Análisis de una obra, herramienta, instalación, pieza musical,
+      software, publicación, exposición.
+  laboratorios:
+    output: true
+    permalink: /laboratorios/:slug/
+    name: Laboratorios
+    description: >
+      Documentación de procesos propios: prototipos, experimentos, derivas
+      de investigación.
+  resonancias:
+    output: true
+    permalink: /resonancias/:slug/
+    name: Resonancias
+    description: >
+      Ensayos largos. Conexiones entre campos, lectura profunda, futuros
+      especulativos con base histórica.
+  derivadas:
+    output: true
+    permalink: /derivadas/:slug/
+    name: Derivadas
+    description: >
+      Recopilaciones, índices comentados, antologías breves, estados de
+      la cuestión.
+
+# Defaults de frontmatter por colección
+defaults:
+  - scope:
+      path: ""
+      type: observaciones
+    values:
+      layout: article
+      coleccion: observaciones
+      author: INTERSTICIO
+  - scope:
+      path: ""
+      type: artefactos
+    values:
+      layout: article
+      coleccion: artefactos
+      author: INTERSTICIO
+  - scope:
+      path: ""
+      type: laboratorios
+    values:
+      layout: article
+      coleccion: laboratorios
+      author: INTERSTICIO
+  - scope:
+      path: ""
+      type: resonancias
+    values:
+      layout: article
+      coleccion: resonancias
+      author: INTERSTICIO
+  - scope:
+      path: ""
+      type: derivadas
+    values:
+      layout: article
+      coleccion: derivadas
+      author: INTERSTICIO
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+
+# Excluidos
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor
+  - .github
+  - .specify
+  - .plan
+  - "*.gemspec"
+  - ".jekyll-cache"
+  - ".bundle"
+  - "assets/img/README.md"
+
+# Markdown
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    block:
+      line_numbers: false
+  hard_wrap: false
+
+# Sass (no usado por ahora, pero por si crece)
+sass:
+  style: compressed
+
+# Mostrar drafts sólo en dev
+show_drafts: false
+future: false

@@ -1,0 +1,23 @@
+{%- comment -%}
+  pagination.html
+  Paginación minimalista: anterior / número / siguiente. Sin barras absurdas.
+{%- endcomment -%}
+{%- if paginator.total_pages > 1 %}
+<nav class="pagination" aria-label="Paginación">
+  {%- if paginator.previous_page %}
+  <a class="pagination__prev" href="{{ paginator.previous_page_path | relative_url }}">← Anterior</a>
+  {%- else %}
+  <span class="pagination__prev is-disabled">← Anterior</span>
+  {%- endif %}
+
+  <span class="pagination__pages">
+    Página {{ paginator.page }} de {{ paginator.total_pages }}
+  </span>
+
+  {%- if paginator.next_page %}
+  <a class="pagination__next" href="{{ paginator.next_page_path | relative_url }}">Siguiente →</a>
+  {%- else %}
+  <span class="pagination__next is-disabled">Siguiente →</span>
+  {%- endif %}
+</nav>
+{%- endif -%}

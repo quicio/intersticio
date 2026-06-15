@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+{%- assign slug = page.collection -%}
+{%- assign meta = site.data.editorial.colecciones | where: "slug", slug | first -%}
+{%- assign docs = site[slug] | sort: 'date' | reverse -%}
+
+<section class="section">
+  <div class="wrap wrap--narrow">
+    <p class="section__eyebrow">Colección</p>
+    <h1 class="section__bigtitle">{{ meta.nombre }}</h1>
+    <p class="section__dek">{{ meta.descripcion }}</p>
+    <p class="section__question"><em>{{ meta.pregunta }}</em></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    {%- if docs.size == 0 %}
+    <p class="empty">Esta colección aún no tiene piezas publicadas.</p>
+    {%- else %}
+    <div class="entries">
+      {%- for post in docs %}
+        {%- include article-card.html -%}
+      {%- endfor %}
+    </div>
+    {%- endif %}
+  </div>
+</section>

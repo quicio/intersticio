@@ -1,0 +1,62 @@
+---
+layout: default
+---
+
+<section class="hero" aria-label="Identidad">
+  <div class="wrap">
+    <p class="hero__eyebrow">Publicación editorial</p>
+    <h1 class="hero__title">INTERSTICIO</h1>
+    <p class="hero__sub">{{ site.tagline }}</p>
+    {%- assign ultima = site.data.editorial %}
+    <p class="hero__line">{{ site.data.editorial.lema_alterno }}</p>
+  </div>
+</section>
+
+{%- assign observaciones = site.observaciones | sort: 'date' | reverse -%}
+{%- if observaciones.size > 0 %}
+<section class="section section--observaciones">
+  <div class="wrap">
+    <header class="section__head">
+      <h2 class="section__title">Observaciones recientes</h2>
+      <a class="section__more" href="{{ '/observaciones/' | relative_url }}">Ver todas →</a>
+    </header>
+    <div class="entries">
+      {%- for post in observaciones limit:3 %}
+        {%- include article-card.html -%}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif -%}
+
+{%- comment -%}
+  Coleccionamos todo el contenido reciente (excluyendo observaciones, ya
+  mostradas arriba) ordenado por fecha.
+{%- endcomment -%}
+{%- assign piezas = site.artefactos | concat: site.laboratorios | concat: site.resonancias | concat: site.derivadas -%}
+{%- assign piezas = piezas | sort: 'date' | reverse -%}
+
+<section class="section">
+  <div class="wrap">
+    <header class="section__head">
+      <h2 class="section__title">Últimas piezas</h2>
+    </header>
+    <div class="entries">
+      {%- for post in piezas limit:6 %}
+        {%- include article-card.html -%}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--manifesto">
+  <div class="wrap wrap--narrow">
+    <p class="section__eyebrow">Manifiesto</p>
+    <p class="manifesto">
+      {{ site.data.editorial.manifiesto_corto }}
+    </p>
+    <p class="manifesto__more">
+      <a href="{{ '/sobre/' | relative_url }}">Leer sobre INTERSTICIO →</a>
+    </p>
+  </div>
+</section>

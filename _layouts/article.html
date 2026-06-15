@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<article class="article">
+  <header class="article__head wrap wrap--reading">
+    {%- assign c = page.coleccion | default: page.collection -%}
+    {%- assign meta = site.data.editorial.colecciones | where: "slug", c | first -%}
+    <p class="article__eyebrow">
+      <a href="{{ c | prepend: '/' | append: '/' | relative_url }}">{{ meta.nombre | default: c | capitalize }}</a>
+    </p>
+    <h1 class="article__title">{{ page.title }}</h1>
+    {%- if page.resumen %}
+    <p class="article__dek">{{ page.resumen }}</p>
+    {%- endif %}
+    <div class="article__byline">
+      <span>{{ page.author | default: 'INTERSTICIO' }}</span>
+      <span class="article__sep">·</span>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
+      {%- if page.carta %}
+      <span class="article__sep">·</span>
+      <span class="article__carta">{{ page.carta }}</span>
+      {%- endif %}
+    </div>
+  </header>
+
+  <div class="article__body wrap wrap--reading">
+    {{ content }}
+  </div>
+
+  <footer class="article__foot wrap wrap--reading">
+    {%- include article-meta.html -%}
+
+    <nav class="article__nav" aria-label="Más piezas">
+      {%- assign c = page.coleccion | default: page.collection -%}
+      <a href="{{ c | prepend: '/' | append: '/' | relative_url }}">← Volver a {{ c | capitalize }}</a>
+    </nav>
+  </footer>
+</article>

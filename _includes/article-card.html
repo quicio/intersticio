@@ -1,0 +1,37 @@
+{%- comment -%}
+  article-card.html
+  Bloque editorial para listados. No usa "tarjeta" con borde y sombra.
+  Es texto con jerarquía tipográfica.
+  Params implícitos: post (colección doc)
+{%- endcomment -%}
+{%- assign c = post.coleccion | default: post.collection -%}
+{%- assign meta = site.data.editorial.colecciones | where: "slug", c | first -%}
+<article class="entry entry--{{ c }}">
+  <div class="entry__meta">
+    <span class="entry__collection">{{ meta.nombre | default: c | capitalize }}</span>
+    <span class="entry__sep">·</span>
+    <time class="entry__date" datetime="{{ post.date | date_to_xmlschema }}">
+      {{ post.date | date: "%-d %B %Y" }}
+    </time>
+    {%- if post.carta %}
+    <span class="entry__sep">·</span>
+    <span class="entry__carta">{{ post.carta }}</span>
+    {%- endif %}
+  </div>
+
+  <h2 class="entry__title">
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  </h2>
+
+  {%- if post.resumen %}
+  <p class="entry__dek">{{ post.resumen }}</p>
+  {%- endif %}
+
+  {%- if post.etiquetas and post.etiquetas.size > 0 %}
+  <ul class="entry__tags" aria-label="Etiquetas">
+    {%- for tag in post.etiquetas %}
+    <li>{{ tag }}</li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+</article>

@@ -1,0 +1,34 @@
+{%- comment -%}
+  article-meta.html
+  Bloque de metadatos al pie de un artículo.
+{%- endcomment -%}
+<div class="article__meta">
+  {%- assign c = page.coleccion | default: page.collection -%}
+  {%- assign meta = site.data.editorial.colecciones | where: "slug", c | first -%}
+  <div class="article__meta-row">
+    <span class="article__meta-label">Colección</span>
+    <span class="article__meta-value">
+      <a href="{{ c | prepend: '/' | append: '/' | relative_url }}">{{ meta.nombre | default: c | capitalize }}</a>
+    </span>
+  </div>
+  <div class="article__meta-row">
+    <span class="article__meta-label">Fecha</span>
+    <span class="article__meta-value">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
+    </span>
+  </div>
+  {%- if page.author %}
+  <div class="article__meta-row">
+    <span class="article__meta-label">Autor</span>
+    <span class="article__meta-value">{{ page.author }}</span>
+  </div>
+  {%- endif %}
+  {%- if page.etiquetas and page.etiquetas.size > 0 %}
+  <div class="article__meta-row">
+    <span class="article__meta-label">Etiquetas</span>
+    <span class="article__meta-value article__meta-tags">
+      {%- for tag in page.etiquetas %}<span class="tag">{{ tag }}</span>{%- endfor %}
+    </span>
+  </div>
+  {%- endif %}
+</div>

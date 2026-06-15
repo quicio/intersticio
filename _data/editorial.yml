@@ -1,0 +1,39 @@
+# Datos editoriales — una sola fuente de verdad para menciones, créditos
+# y descripciones que se referencian desde layouts e includes.
+
+lema: "Exploraciones entre tecnología, arte, ciencia y cultura."
+lema_alterno: "Las ideas más interesantes suelen aparecer en los intersticios."
+
+manifiesto_corto: >
+  INTERSTICIO es una exploración continua de los espacios entre disciplinas.
+  Nos interesan proyectos difíciles de clasificar, investigaciones que
+  cambian perspectivas, herramientas experimentales, comunidades creativas
+  y señales tempranas de futuros posibles. No seguimos industrias.
+  Seguimos conexiones.
+
+colecciones:
+  - slug: observaciones
+    nombre: Observaciones
+    orden: 1
+    descripcion: Notas de campo, hallazgos, lecturas, una idea en desarrollo.
+    pregunta: "¿Qué noté hoy?"
+  - slug: artefactos
+    nombre: Artefactos
+    orden: 2
+    descripcion: Análisis de una obra, herramienta, instalación o publicación.
+    pregunta: "¿Qué existe y por qué importa?"
+  - slug: laboratorios
+    nombre: Laboratorios
+    orden: 3
+    descripcion: "Procesos propios: prototipos, experimentos, derivas de investigación."
+    pregunta: "¿Qué estoy construyendo y qué aprendo?"
+  - slug: resonancias
+    nombre: Resonancias
+    orden: 4
+    descripcion: Ensayos largos. Conexiones entre campos, futuros con base histórica.
+    pregunta: "¿Qué conexiones aparecen cuando me detengo?"
+  - slug: derivadas
+    nombre: Derivadas
+    orden: 5
+    descripcion: Recopilaciones, índices comentados, estados de la cuestión.
+    pregunta: "¿Qué se está movando en un campo?"

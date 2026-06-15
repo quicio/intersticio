@@ -1,0 +1,7 @@
+{%- comment -%}
+  SEO meta tags.
+  Si se quiere sustituir jekyll-seo-tag, este include es la entrada única.
+{%- endcomment -%}
+{%- if site.plugins contains 'jekyll-seo-tag' -%}
+  {%- seo -%}
+{%- endif -%}
