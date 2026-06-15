@@ -6,14 +6,14 @@ description: >
   ciencia, cultura digital, música, comunidades creativas y futuros
   emergentes.
 author: INTERSTICIO
-email: hello@intersticio.org
-url: "https://intersticio.org"
-baseurl: ""
-repository: anomalyco/intersticio
+email: hello@quicio.org
+url: "https://quicio.github.io"
+baseurl: "/intersticio"
+repository: quicio/intersticio
 
 lang: es
-locale: es_ES
-timezone: Europe/Madrid
+locale: es_CL
+timezone: America/Santiago
 
 permalink: /:collection/:slug/
 paginate: 12

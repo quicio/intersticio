@@ -82,4 +82,4 @@ carta: "Cuaderno abierto. Sin pretensión de reseña completa."
 ---
 
 *¿Algo que crees que debería estar leyendo? [Sugerencias
-abiertas](https://github.com/anomalyco/intersticio/issues).*
+abiertas](https://github.com/quicio/intersticio/issues).*

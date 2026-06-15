@@ -70,6 +70,6 @@ Patrones emergentes:
 ## Estado
 
 En curso. Si operas un sello pequeño y quieres participar,
-[escríbeme](mailto:hello@intersticio.org). No hay compensación
+[escríbeme](mailto:hello@quicio.org). No hay compensación
 económica, sólo crédito y la satisfacción de aparecer en un
 archivo que se cita.

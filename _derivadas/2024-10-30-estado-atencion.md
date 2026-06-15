@@ -84,7 +84,7 @@ carta: "Una guía en construcción. Última actualización: octubre 2024."
 ## Cómo contribuir
 
 Si conoces un texto, exposición o proyecto que debería
-aparecer aquí, [abre un issue](https://github.com/anomalyco/intersticio/issues).
+aparecer aquí, [abre un issue](https://github.com/quicio/intersticio/issues).
 La lista se actualiza aproximadamente cada seis meses.
 
 ---

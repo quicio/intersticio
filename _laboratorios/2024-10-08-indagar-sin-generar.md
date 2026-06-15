@@ -66,4 +66,4 @@ Para responder, estoy probando una pila deliberadamente
 ## Estado del cuaderno
 
 Sigue abierto. Si quieres proponer criterios de metadatos o
-compartir tu propio método, [abre un issue](https://github.com/anomalyco/intersticio/issues).
+compartir tu propio método, [abre un issue](https://github.com/quicio/intersticio/issues).
